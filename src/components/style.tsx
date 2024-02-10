@@ -1,0 +1,52 @@
+import { createUseStyles } from "react-jss";
+
+export const useStyle = createUseStyles({
+  containerNavBarElements: {
+    color: "var(--bs-body-color)",
+    display: "flex",
+    maxWidth:1200,
+    height:'28.8px',
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingRight: "calc(var(--bs-gutter-x) * .5)",
+    paddingLeft: "calc(var(--bs-gutter-x) * .5)",
+    marginRight: "auto",
+    marginLeft: "auto",
+  },
+  CompanyStyle: {
+    fontSize: 26,
+    fontWeight: 700,
+    color: "#fff",
+    fontFamily: "Poppins",
+    marginLeft: 12,
+  },
+  containerButton: {
+    marginRight:12,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "28.8px" /* Adjust the height as needed */,
+  },
+  buttonStyle: {
+    fontSize: "inherit",
+    border: "none",
+    padding:'0',
+    width:'100%',
+    height:'100%',  
+    backgroundColor: "transparent",
+    cursor: "pointer",
+  },
+  collapse: {
+    position: "relative",
+    color: "#fff",
+    backbround: "none",
+    border: "none",
+    fontSize: 28,
+    cursor: "pointer",
+    lineHeight: 0,
+    height:'883px',
+    transition: "0.5s",
+    zIndex: 9999,
+    paddingRight: 10,
+  },
+});
