@@ -1,8 +1,9 @@
-import { useStyle } from './StyleApp'
-import { FullScreenCarousel } from './components/FullScreenCarousel'
-import { NavBar } from './components/NavBar'
+import { useStyle } from "./StyleApp";
+import { FullScreenCarousel } from "./components/FullScreenCarousel";
+import { NavBar } from "./components/NavBar";
 
 function App() {
+
 
   const classes = useStyle()
  const images = [
@@ -14,17 +15,18 @@ function App() {
 ]
 
   return (
-    <div className={classes.containerPage}>
-<div className={classes.navbar}>
-
-     <NavBar/>
-</div>
-<div className={classes.carousel}>
-
-    <FullScreenCarousel images={images}/>
-</div>
+    <div>
+      <div className={classes.containerPage}>
+        <div className={classes.navbar}>
+          <NavBar />
+        </div>
+        <div className={classes.carousel}>
+          <FullScreenCarousel images={images} />
+        </div>
+      </div>
+      <div className={classes.HT}>hhello</div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
