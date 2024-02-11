@@ -1,29 +1,45 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Carousel } from 'react-bootstrap';
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Carousel } from "react-bootstrap";
+import { useStyle } from "./FullScreenCaroussel.style";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import { useState } from "react";
 
 interface FullScreenCarouselProps {
   images: string[];
 }
-export const FullScreenCarousel:React.FC<FullScreenCarouselProps>= ({images}) => {
+export const FullScreenCarousel: React.FC<FullScreenCarouselProps> = ({
+  images,
+}) => {
+  const classes = useStyle();
+  console.log(<BiChevronLeft style={{ fontSize: "24px", color: "red" }} />);
+  const [IndexImg, setIndexImg] = useState(0)
+  const handleClick = (x:number) => { setIndexImg(IndexImg + x) }
+
   return (
-    <div className="carousel-container">
-    <Carousel id="carouselExampleControls">
-      {images.map((image, index) => (
-        <Carousel.Item key={index} className={index === 0 ? "active" : ""}>
-          <img className="d-block w-100" src={image} alt={`Slide ${index + 1}`} style={{ height: '883' }}/>
-        </Carousel.Item>
-      ))}
-      <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="sr-only"></span>
-      </a>
-      <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="sr-only"></span>
-      </a>
-    </Carousel>
-  </div>
-  
+    <div style={{ height: 830, width: "100%" }}>
+      <div className="carousel-container">
+        {/* <div className={classes.dark}></div> */}
+        <Carousel
+          id="carouselExampleControls"
+          indicators={false}
+          prevIcon={<div className="custom-prev" onClick={()=>handleClick(-1)}>
+          <BiChevronLeft className={classes.leftRightIcons} />
+        </div>}
+          nextIcon={<BiChevronRight className={classes.leftRightIcons} onClick={()=>handleClick(1)}/>}
+        >
+          {images.map((image, index) => (
+            <Carousel.Item key={index} className={index === 0 ? "active" : ""}>
+              <img
+                className={classes.image}
+                src={image}
+                alt={`Slide ${index + 1}`}
+                style={{ height: "883" }}
+              />
+            </Carousel.Item>
+          ))}
+          
+        </Carousel>
+      </div>
+    </div>
   );
 };
